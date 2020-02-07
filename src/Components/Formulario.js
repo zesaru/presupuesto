@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Error from "./Error";
 import shortid from "shortid";
 
-const Formulario = () => {
-  const [nombre, guardaNombre] = useState("");
+const Formulario = ({ agregarNuevoGasto }) => {
+  const [nombre, guardarNombre] = useState("");
   const [cantidad, guardarCantidad] = useState(0);
   const [error, guardarError] = useState(false);
 
@@ -26,8 +26,11 @@ const Formulario = () => {
 
     console.log(gasto);
     // pasar el gasto al componente principal
+    agregarNuevoGasto(gasto);
 
     // resetear el form
+    guardarNombre("");
+    guardarCantidad(0);
   };
   return (
     <form onSubmit={agregarGasto}>
@@ -43,7 +46,7 @@ const Formulario = () => {
           className="u-full-width"
           placeholder="Ej. Transporte"
           value={nombre}
-          onChange={e => guardaNombre(e.target.value)}
+          onChange={e => guardarNombre(e.target.value)}
         />
       </div>
 
