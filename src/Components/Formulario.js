@@ -24,7 +24,7 @@ const Formulario = ({ agregarNuevoGasto }) => {
       id: shortid.generate()
     };
 
-    console.log(gasto);
+    //console.log(gasto);
     // pasar el gasto al componente principal
     agregarNuevoGasto(gasto);
 
